@@ -1,0 +1,10 @@
+.todo-list {
+  th {
+    background-color: darkgray;
+    color: black;
+    font-weight: bold;
+  }
+  tr:nth-child(odd) {
+    background-color: lightgrey;
+  }
+}
