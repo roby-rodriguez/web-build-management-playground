@@ -1,4 +1,4 @@
-import * as angular from 'angular';
+// import * as angular from 'angular';
 import TodoService from "./todo.service";
 import { Todo } from "./todo.types";
 
@@ -18,7 +18,7 @@ class TodoController implements ng.IController {
     }
 */
     addTodo(todo: Todo): void {
-        this.todos.push(todo)
+        this.todos.push(todo);
     }
 }
 

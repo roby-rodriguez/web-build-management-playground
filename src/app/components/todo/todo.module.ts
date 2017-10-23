@@ -1,5 +1,5 @@
 import { module } from 'angular';
-import uiRouter from 'angular-ui-router';
+import uiRouter from '@uirouter/angularjs';
 import TodoComponent from './todo.component';
 import TodoService from './todo.service';
 import TodoForm from './todo-form';
@@ -19,7 +19,7 @@ const todo = module('app.todo',
                 url: '/todos',
                 component: 'todo',
                 resolve: {
-                    todoData: TodoService => TodoService.getTodos()
+                    todoData: (todoService: TodoService) => todoService.getTodos()
                 }
             });
         $urlRouterProvider.otherwise('/');

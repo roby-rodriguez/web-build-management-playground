@@ -1,4 +1,4 @@
-import * as angular from 'angular';
+// import * as angular from 'angular';
 
 const HeaderComponent: ng.IComponentOptions = {
     template:

@@ -1,4 +1,4 @@
-import * as angular from 'angular';
+// import * as angular from 'angular';
 import { Todo } from "../todo.types";
 
 class TodoFormController implements ng.IController {
@@ -6,8 +6,9 @@ class TodoFormController implements ng.IController {
     onAddTodo: Function = (todo: Todo) => {};
 
     onSubmit(): void {
-        if (!this.todo.title)
+        if (!this.todo.title) {
             return;
+        }
         this.onAddTodo(this.todo);
     }
 }

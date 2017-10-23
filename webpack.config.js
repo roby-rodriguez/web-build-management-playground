@@ -1,20 +1,24 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
         app: './src/app/app.module.js',
-        vendor: [
-            'angular/angular.js',
-            'angular-ui-router/release/angular-ui-router.js',
-            'angular-sanitize'
+/*
+        vendors: [
+            //'angular/angular.js',
+            //'@uirouter/angularjs/release/angular-ui-router.js',
+            //'angular-sanitize'
+
         ]
+*/
     },
     context: __dirname,
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js',
-        sourceMapFilename: 'bundle.map'
+        filename: '[name].bundle.js',
+        sourceMapFilename: '[name].bundle.map'
     },
     devtool: 'source-map',
     module: {
@@ -22,7 +26,7 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: [
-                    { loader:'ngtemplate-loader?relativeTo=' + (path.resolve(__dirname, './app')) },
+                    { loader:'ngtemplate-loader?relativeTo=' + (path.resolve(__dirname, './app/!html')) },
                     { loader: 'html-loader' }
                 ]
             },
@@ -64,5 +68,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
+        new CopyWebpackPlugin([{ from: './src/index.html', to: './index.html' }])
     ]
 };

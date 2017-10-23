@@ -1,5 +1,6 @@
-import * as angular from 'angular';
+// import * as angular from 'angular';
 import { Todo } from './todo.types';
+import { IPromise } from "angular";
 
 class TodoService {
     private $q: ng.IQService;
@@ -8,7 +9,7 @@ class TodoService {
         this.$q = $q;
     }
 
-    getTodos() {
+    getTodos(): IPromise<Todo[]> {
         return this.$q.when([
             new Todo("buy milk", "until next Wednesday"),
             new Todo("do homework", "late Sunday evening - ask Joe for advice"),
