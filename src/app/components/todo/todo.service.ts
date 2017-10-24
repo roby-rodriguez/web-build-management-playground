@@ -1,11 +1,12 @@
-// import * as angular from 'angular';
 import { Todo } from './todo.types';
 import { IPromise } from "angular";
 
 class TodoService {
     private $q: ng.IQService;
 
-    constructor($q) {
+    // static $inject = [ '$q' ];
+
+    constructor($q: ng.IQService) {
         this.$q = $q;
     }
 

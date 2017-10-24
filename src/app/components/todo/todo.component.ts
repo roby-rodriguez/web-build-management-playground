@@ -1,4 +1,3 @@
-// import * as angular from 'angular';
 import TodoController from "./todo.controller";
 
 const TodoComponent: ng.IComponentOptions = {

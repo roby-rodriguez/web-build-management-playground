@@ -1,4 +1,3 @@
-// import * as angular from 'angular';
 import { Todo } from "../todo.types";
 
 class TodoFormController implements ng.IController {
@@ -9,7 +8,9 @@ class TodoFormController implements ng.IController {
         if (!this.todo.title) {
             return;
         }
-        this.onAddTodo(this.todo);
+        this.onAddTodo({ todo: this.todo });
+        // reset form
+        this.todo = new Todo("");
     }
 }
 

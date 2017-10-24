@@ -1,5 +1,3 @@
-import * as angular from 'angular';
-
 const AppComponent: ng.IComponentOptions = {
     template:
         `

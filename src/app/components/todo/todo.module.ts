@@ -12,17 +12,21 @@ const todo = module('app.todo',
         TodoList
     ])
     .component('todo', TodoComponent)
-    .service('TodoService', TodoService)
-    .config(($stateProvider, $urlRouterProvider) => {
+    .service('todoService', TodoService)
+    .config(($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+        'ngInject';
         $stateProvider
             .state('todos', {
                 url: '/todos',
                 component: 'todo',
                 resolve: {
-                    todoData: (todoService: TodoService) => todoService.getTodos()
+                    todos: (todoService: TodoService) => {
+                        'ngInject';
+                        return todoService.getTodos();
+                    }
                 }
             });
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/todos');
     })
     .name;
 
